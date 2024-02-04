@@ -89,28 +89,28 @@
 
 // Задача к Кексобукинг:
 
-function generationСoordinates(min, max, numbOfChar) {
-  if (min <= 0 || max <= 0 || numbOfChar <= 0) {
-    return NaN;
-  }
-
-  if (min === max) {
-    return `Результат: ${min}, так как  min и max имеют одинаковые значения;`;
-  }
-
-  //если передать значение «max» меньшее, чем значение «min»
-  if (min > max) {
-    const result = confirm(
-      'Переданные значение «max» меньшее, чем значение «max», поменять их местами?'
-    );
-
-    if (result) {
-      const newNum = (Math.random() * (min - max) + max).toFixed(numbOfChar); //генерация случайнх чисел с фиксированным кол-ом символов после запятой.
-      return `Результат: ${newNum} с плавающей точкой из диапазона "${max}...${min}" с указанным "${numbOfChar} знаков после запятой"`;
-    } else {
+  function generationСoordinates(min, max, numbOfChar) {
+    if (min <= 0 || max <= 0 || numbOfChar <= 0) {
       return NaN;
     }
+  
+    if (min === max) {
+      return `Результат: ${min}, так как  min и max имеют одинаковые значения;`;
+    }
+  
+    //если передать значение «max» меньшее, чем значение «min»
+    if (min > max) {
+      const result = confirm(
+        'Переданные значение «max» меньшее, чем значение «max», поменять их местами?'
+      );
+  
+      if (result) {
+        const newNum = (Math.random() * (min - max) + max).toFixed(numbOfChar); //генерация случайнх чисел с фиксированным кол-ом символов после запятой.
+        return `Результат: ${newNum} с плавающей точкой из диапазона "${max}...${min}" с указанным "${numbOfChar} знаков после запятой"`;
+      } else {
+        return NaN;
+      }
+    }
+    const newNum = (Math.random() * (max - min) + min).toFixed(numbOfChar); //генерация случайнх чисел с фиксированным кол-ом символов после запятой.
+    return `Результат: ${newNum} с плавающей точкой из диапазона "${min}...${max}" с указанным "${numbOfChar} знаков после запятой"`;
   }
-  const newNum = (Math.random() * (max - min) + min).toFixed(numbOfChar); //генерация случайнх чисел с фиксированным кол-ом символов после запятой.
-  return `Результат: ${newNum} с плавающей точкой из диапазона "${min}...${max}" с указанным "${numbOfChar} знаков после запятой"`;
-}
