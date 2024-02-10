@@ -165,7 +165,7 @@ class CreateObjTwo {
   static creatAuthor() {
     let result = CreateObjTwo.creatNoRepNum(10, 1, CreateObjTwo.allAuthor);
     if (result < 10) {
-      result = '0' + result;
+      result = `'0' + ${result}`;
     }
     return {
       avatar: `img/avatars/user${result}.png`,
@@ -180,7 +180,7 @@ class CreateObjTwo {
     ARR.length = Math.floor(1 + Math.random() * (obj.length + 1 - 1));
 
     for (let i = 0; i <= ARR.length - 1; i++) {
-      let check = function() {
+      const CHECK = function() {
         function random() {
           return Math.floor(Math.random() * (obj.length - 1 + 1));
         }
@@ -188,13 +188,13 @@ class CreateObjTwo {
         const NUM = random();
 
         if (VALALLFEATURES.has(NUM)) {
-          return check();
+          return CHECK();
         } else {
           VALALLFEATURES.add(NUM);
           ARR[i] = obj.at(NUM);
         }
-      }
-      check();
+      };
+      CHECK();
     }
     return ARR;
   }
