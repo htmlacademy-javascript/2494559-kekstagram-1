@@ -180,23 +180,21 @@ class CreateObjTwo {
     ARR.length = Math.floor(1 + Math.random() * (obj.length + 1 - 1));
 
     for (let i = 0; i <= ARR.length - 1; i++) {
-      check();
       function check() {
-        random()
-      }
-      function random() {
-        return Math.floor(Math.random() * (obj.length - 1 + 1));
-      }
+        function random() {
+          return Math.floor(Math.random() * (obj.length - 1 + 1));
+        }
 
-      const NUM = random();
+        const NUM = random();
 
-      if (VALALLFEATURES.has(NUM)) {
-        return check();
-      } else {
-        VALALLFEATURES.add(NUM);
-        ARR[i] = obj.at(NUM);
+        if (VALALLFEATURES.has(NUM)) {
+          return check();
+        } else {
+          VALALLFEATURES.add(NUM);
+          ARR[i] = obj.at(NUM);
+        }
       }
-
+      check();
     }
     return ARR;
   }
