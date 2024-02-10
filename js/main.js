@@ -93,7 +93,6 @@ class CreateObj {
 Array.from({ length: 25 }, () => new CreateObj());
 
 
-
 // Кексобукинг
 
 class CreateObjTwo {
@@ -151,13 +150,13 @@ class CreateObjTwo {
         return Math.floor(Math.random() * (max - min + min)) + min;
       }
 
-      let num = random();
+      const NUM = random();
 
-      if (obj.has(num)) {
+      if (obj.has(NUM)) {
         return check();
       } else {
-        obj.add(num);
-        return num;
+        obj.add(NUM);
+        return NUM;
       }
     }
     return check();
@@ -230,3 +229,4 @@ class CreateObjTwo {
     };
   }
 }
+Array.from({ length: 10 }, () => new CreateObjTwo());
