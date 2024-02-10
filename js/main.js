@@ -52,13 +52,13 @@ class CreateObj {
         return Math.floor(Math.random() * (max - min + min)) + min;
       }
 
-      let num = random();
+      const NUM = random();
 
-      if (obj.has(num)) {
+      if (obj.has(NUM)) {
         return check();
       } else {
-        obj.add(num);
-        return num;
+        obj.add(NUM);
+        return NUM;
       }
     }
     return check();
@@ -90,15 +90,15 @@ class CreateObj {
   }
 }
 
-let arrOfPhotos = Array.from({ length: 25 }, () => new CreateObj());
+const ARR = Array.from({ length: 25 }, () => new CreateObj());
 
 // Кексобукинг
 
-class CreateObj_2 {
+class CreateObjTwo {
   constructor() {
-    this.author = CreateObj_2.creatAuthor();
-    this.offer = CreateObj_2.creatOffer();
-    this.location = CreateObj_2.creatLocation();
+    this.author = CreateObjTwo.creatAuthor();
+    this.offer = CreateObjTwo.creatOffer();
+    this.location = CreateObjTwo.creatLocation();
   }
 
   static allAuthor = new Set();
@@ -109,6 +109,7 @@ class CreateObj_2 {
     'bungalow',
     'hotel',
   ];
+
   static descrip = [
     'Продается уютный дом с современным дизайном и просторной террасой, идеальный для семейной жизни.',
     'Живописный загородный дом в окружении природы и свежего воздуха идеально подойдет для тех, кто ценит спокойствие.',
@@ -121,6 +122,7 @@ class CreateObj_2 {
     'Продается современный таунхаус с охраняемой территорией и удобным расположением рядом с городской инфраструктурой.',
     'Элитный дом премиум-класса с высокими потолками, эксклюзивной мебелью и роскошной обстановкой, подчеркнет статус его нового владельца.',
   ];
+
   static allFeatures = [
     'wifi',
     'dishwasher',
@@ -129,6 +131,7 @@ class CreateObj_2 {
     'elevator',
     'conditioner',
   ];
+
   static allPhotos = [
     'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
     'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
@@ -159,7 +162,7 @@ class CreateObj_2 {
   }
 
   static creatAuthor() {
-    let result = CreateObj_2.creatNoRepNum(10, 1, CreateObj_2.allAuthor);
+    let result = CreateObjTwo.creatNoRepNum(10, 1, CreateObjTwo.allAuthor);
     if (result < 10) {
       result = '0' + result;
     }
@@ -197,23 +200,23 @@ class CreateObj_2 {
 
   static creatOffer() {
     return {
-      title: CreateObj_2.descrip.at(
-        CreateObj_2.creatNum(0, CreateObj_2.descrip.length - 1)
+      title: CreateObjTwo.descrip.at(
+        CreateObjTwo.creatNum(0, CreateObjTwo.descrip.length - 1)
       ),
-      address: CreateObj_2.creatLocation(),
-      price: CreateObj_2.creatNum(1, 1000000),
-      type: CreateObj_2.allType.at(
-        CreateObj_2.creatNum(0, CreateObj_2.allType.length - 1)
+      address: CreateObjTwo.creatLocation(),
+      price: CreateObjTwo.creatNum(1, 1000000),
+      type: CreateObjTwo.allType.at(
+        CreateObjTwo.creatNum(0, CreateObjTwo.allType.length - 1)
       ),
-      rooms: CreateObj_2.creatNum(1, 10),
-      guests: CreateObj_2.creatNum(1, 10),
-      checkin: `${CreateObj_2.creatNum(12, 14)}:00`,
-      checkout: `${CreateObj_2.creatNum(12, 14)}:00`,
-      features: CreateObj_2.creatArr(CreateObj_2.allFeatures),
-      description: CreateObj_2.descrip.at(
-        CreateObj_2.creatNum(0, CreateObj_2.descrip.length - 1)
+      rooms: CreateObjTwo.creatNum(1, 10),
+      guests: CreateObjTwo.creatNum(1, 10),
+      checkin: `${CreateObjTwo.creatNum(12, 14)}:00`,
+      checkout: `${CreateObjTwo.creatNum(12, 14)}:00`,
+      features: CreateObjTwo.creatArr(CreateObjTwo.allFeatures),
+      description: CreateObjTwo.descrip.at(
+        CreateObjTwo.creatNum(0, CreateObjTwo.descrip.length - 1)
       ),
-      photos: CreateObj_2.creatArr(CreateObj_2.allPhotos),
+      photos: CreateObjTwo.creatArr(CreateObjTwo.allPhotos),
     };
   }
 
@@ -226,5 +229,5 @@ class CreateObj_2 {
   }
 }
 
-let arrOfPhotos_2 = Array.from({length: 10}, () => new CreateObj_2());
+let arrOfPhotos_2 = Array.from({length: 10}, () => new CreateObjTwo());
 
