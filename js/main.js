@@ -90,7 +90,9 @@ class CreateObj {
   }
 }
 
-const ARR = Array.from({ length: 25 }, () => new CreateObj());
+Array.from({ length: 25 }, () => new CreateObj());
+
+
 
 // Кексобукинг
 
@@ -172,30 +174,30 @@ class CreateObjTwo {
   }
 
   static creatArr(obj) {
-    let arr = [];
+    const ARR = [];
 
-    let valAllFeatures = new Set();
+    const VALALLFEATURES = new Set();
 
-    arr.length = Math.floor(1 + Math.random() * (obj.length + 1 - 1));
+    ARR.length = Math.floor(1 + Math.random() * (obj.length + 1 - 1));
 
-    for (let i = 0; i <= arr.length - 1; i++) {
-      check();
+    for (let i = 0; i <= ARR.length - 1; i++) {
       function check() {
         function random() {
           return Math.floor(Math.random() * (obj.length - 1 + 1));
         }
 
-        let num = random();
+        const NUM = random();
 
-        if (valAllFeatures.has(num)) {
+        if (VALALLFEATURES.has(NUM)) {
           return check();
         } else {
-          valAllFeatures.add(num);
-          arr[i] = obj.at(num);
+          VALALLFEATURES.add(NUM);
+          ARR[i] = obj.at(NUM);
         }
       }
+      check();
     }
-    return arr;
+    return ARR;
   }
 
   static creatOffer() {
@@ -228,6 +230,3 @@ class CreateObjTwo {
     };
   }
 }
-
-let arrOfPhotos_2 = Array.from({length: 10}, () => new CreateObjTwo());
-
