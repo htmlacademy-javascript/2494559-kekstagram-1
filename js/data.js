@@ -2,15 +2,15 @@ import { createNum, createNoRepNum } from './util.js';
 
 import { DESCRIPTION, NAMES, MESSAGE } from './const.js';
 
-let id = createNoRepNum(1, 25);
-let url = createNoRepNum(1, 25);
-let description = createNum(0, DESCRIPTION.length-1);
-let likes = createNum(15, 200);
+const id = createNoRepNum(1, 25);
+const url = createNoRepNum(1, 25);
+const description = createNum(0, DESCRIPTION.length - 1);
+const likes = createNum(15, 200);
 
-let idComments = createNoRepNum(15, 999);
-let avatar = createNum(1, 6);
-let message = createNum(0, MESSAGE.length - 1);
-let names = createNum(0, NAMES.length - 1)
+const idComments = createNoRepNum(15, 999);
+const avatar = createNum(1, 6);
+const message = createNum(0, MESSAGE.length - 1);
+const names = createNum(0, NAMES.length - 1);
 class CreateObj {
   constructor() {
     this.id = id();

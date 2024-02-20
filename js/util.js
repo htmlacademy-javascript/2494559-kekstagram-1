@@ -13,4 +13,4 @@ function createNoRepNum(min, max) {
   }
 }
 
-export { createNum, createNoRepNum }
+export { createNum, createNoRepNum };

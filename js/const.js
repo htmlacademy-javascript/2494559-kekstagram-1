@@ -37,4 +37,4 @@ const MESSAGE = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-export { DESCRIPTION, NAMES, MESSAGE }
+export { DESCRIPTION, NAMES, MESSAGE };
