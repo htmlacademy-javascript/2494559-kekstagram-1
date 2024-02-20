@@ -21,11 +21,11 @@ class CreateObj {
   }
 
   getDataComments() {
-  return {
-    id: idComments(),
-    avatar: `img/avatar-${avatar()}.svg`,
-    message: message(),
-    name: NAMES[names()],
+    return {
+      id: idComments(),
+      avatar: `img/avatar-${avatar()}.svg`,
+      message: message(),
+      name: NAMES[names()],
     };
   }
 }
