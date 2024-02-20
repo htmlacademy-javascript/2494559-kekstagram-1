@@ -1,3 +1,5 @@
+import './constants.js';
+
 // Кекстаграм
 
 class CreateObj {
