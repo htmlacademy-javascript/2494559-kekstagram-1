@@ -5,6 +5,8 @@ function createElements(arr){
   for(let i = 0; i < arr.length; i++){
     const element = document.createElement('div');
 
+    const picture = document.getElementById('picture');
+
     element.append(picture.content.cloneNode(true));
 
     const img = element.querySelector('img');
