@@ -13,7 +13,7 @@ function createElements(arr){
 
     const comments = element.querySelector('.picture__likes');
 
-    img.setAttribute("src", `${arr[i].url}`);
+    img.setAttribute('src', `${arr[i].url}`);
 
     likes.textContent = `${arr[i].likes}`;
 
