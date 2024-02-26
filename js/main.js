@@ -1,3 +1,7 @@
 import { CreateObj } from './data.js';
 
-Array.from({ length: 25 }, () => new CreateObj());
+import { createElements } from './createElements.js';
+
+const arr = Array.from({ length: 25 }, () => new CreateObj());
+
+document.body.querySelector('section.pictures').prepend(createElements(arr));
