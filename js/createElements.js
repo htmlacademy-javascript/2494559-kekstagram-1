@@ -1,4 +1,4 @@
-function createElements(arr){
+export function createElements(arr){
 
   const elements = new DocumentFragment();
 
@@ -26,6 +26,4 @@ function createElements(arr){
   }
   return elements;
 }
-
-export { createElements };
 
