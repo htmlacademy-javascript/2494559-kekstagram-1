@@ -2,10 +2,10 @@ function createElements(arr){
 
   const elements = new DocumentFragment();
 
-  for( let i=0; i<arr.length; i++){
-    let element = document.createElement('div');
+  for(let i = 0; i < arr.length; i++){
+    const element = document.createElement('div');
 
-    element.append(picture.content.cloneNode(true))
+    element.append(picture.content.cloneNode(true));
 
     const img = element.querySelector('img');
 
@@ -22,8 +22,8 @@ function createElements(arr){
     elements.append(element);
 
   }
-  return elements
+  return elements;
 }
 
-export { createElements }
+export { createElements };
 
