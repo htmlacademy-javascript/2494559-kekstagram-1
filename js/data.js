@@ -21,12 +21,12 @@ class CreateObj {
   }
 
   getDataComments() {
-    let arrObjects = [];
+    const arrObjects = [];
 
     arrObjects.length = createNum(1, 5)();
 
     for (let i = 0; i <= arrObjects.length - 1; i++) {
-      let obj = {
+      const obj = {
         id: idComments(),
         avatar: `img/avatar-${avatar()}.svg`,
         message: message(),
