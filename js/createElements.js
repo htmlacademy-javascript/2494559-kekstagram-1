@@ -1,8 +1,8 @@
-export function createElements(arr){
+export function createElements(pictures) {
 
   const elements = new DocumentFragment();
 
-  for(let i = 0; i < arr.length; i++){
+  return pictures.reduce((fragment, item) => {
     const element = document.createElement('div');
 
     const picture = document.getElementById('picture');
@@ -15,15 +15,13 @@ export function createElements(arr){
 
     const comments = element.querySelector('.picture__likes');
 
-    img.setAttribute('src', `${arr[i].url}`);
+    img.setAttribute('src', `${item.url}`);
+    likes.textContent = item.likes;
+    comments.textContent = item.comments.length;
 
-    likes.textContent = `${arr[i].likes}`;
+    fragment.append(element);
 
-    comments.textContent = `${arr[i].comments.length}`;
-
-    elements.append(element);
-
-  }
-  return elements;
+    return fragment;
+  }, elements);
 }
 
