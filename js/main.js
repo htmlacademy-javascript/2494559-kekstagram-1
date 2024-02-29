@@ -1,9 +1,19 @@
 import { CreateObj } from './data.js';
 
-import { createElements } from './createElements.js';
+import { createElements } from './user-photo-renderer.js';
 
-import{} from './window-rendering.js'
+import{ closeBigPicture, openBigPicture, closeButton, bigPicture} from './window-rendering.js';
 
-const arr = Array.from({ length: 25 }, () => new CreateObj());
 
-document.body.querySelector('section.pictures').prepend(createElements(arr));
+const userDataArray = Array.from({ length: 25 }, () => new CreateObj());
+
+document.querySelector('section.pictures').prepend(createElements(userDataArray));
+
+// const sec = document.querySelector('section.pictures');
+
+// sec.addEventListener('onclick', function(event) {
+//   if (evt.target.matches('img.pictures___img')) {
+//     openBigPicture(event.target)
+//   }
+
+// });

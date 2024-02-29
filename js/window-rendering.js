@@ -1,32 +1,33 @@
-const bigPicture = document.querySelector('.big-picture');
-const closeButton = bigPicture.querySelector('.big-picture__cancel');
+export const bigPicture = document.querySelector('.big-picture');
+export const closeButton = bigPicture.querySelector('.big-picture__cancel');
 
 export function openBigPicture(photoData) {
-    const img = bigPicture.querySelector('.big-picture__img');
-    const likesCount = bigPicture.querySelector('.likes-count');
-    const commentsCount = bigPicture.querySelector('.comments-count');
-    const commentsList = bigPicture.querySelector('.social__comments');
-    const description = bigPicture.querySelector('.social__caption');
+    const img = bigPicture.querySelector('.big-picture__img img');//верно
+    const likesCount = bigPicture.querySelector('.likes-count');//верно
+    const commentsCount = bigPicture.querySelector('.comments-count');//верно
+    const commentsList = bigPicture.querySelector('.social__comments');//верно
+    const description = bigPicture.querySelector('.social__caption');//верно
 
-    img.src = photoData.url;
-    likesCount.textContent = photoData.likes;
-    commentsCount.textContent = photoData.comments.length;
-    description.textContent = photoData.description;
+    img.src = photoData.url; //верно
+    likesCount.textContent = photoData.likes; //верно
+    commentsCount.textContent = photoData.comments; //верно
+    description.textContent = photoData.description;//верно
 
     commentsList.innerHTML = '';
     photoData.comments.forEach(comment => {
         const commentElement = document.createElement('li');
         commentElement.classList.add('social__comment');
         commentElement.innerHTML =
-            `<img class="social__picture" src="${comment.avatar}" alt="${comment.author}" width="35" height="35">`
-            `<p class="social__text">${comment.text}</p>`
+            `<img class="social__picture" src="${comment.avatar}" alt="${comment.name}" width="35" height="35">`
+            `<p class="social__text">${comment.message}</p>`
         ;
         commentsList.appendChild(commentElement);
     });
 
-    document.body.classList.add('modal-open');
-    bigPicture.classList.remove('hidden');
-}
+    bigPicture.classList.remove('hidden');//верно
+    document.body.classList.add('modal-open');//верно
+
+};
 
 function closeBigPicture() {
     document.body.classList.remove('modal-open');
