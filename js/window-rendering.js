@@ -1,31 +1,29 @@
-export const bigPicture = document.querySelector('.big-picture');
-export const closeButton = bigPicture.querySelector('.big-picture__cancel');
+const bigPicture = document.querySelector('.big-picture');
+const closeButton = bigPicture.querySelector('.big-picture__cancel');
 
 export function openBigPicture(photoData) {
+
+    bigPicture.classList.remove('hidden');//верно
+
     const img = bigPicture.querySelector('.big-picture__img img');//верно
     const likesCount = bigPicture.querySelector('.likes-count');//верно
     const commentsCount = bigPicture.querySelector('.comments-count');//верно
     const commentsList = bigPicture.querySelector('.social__comments');//верно
-    const description = bigPicture.querySelector('.social__caption');//верно
+    const description = bigPicture.querySelector('.social__caption');
 
-    img.src = photoData.url; //верно
-    likesCount.textContent = photoData.likes; //верно
-    commentsCount.textContent = photoData.comments; //верно
+    img.src = photoData.src; //верно
+    likesCount.textContent = photoData.nextElementSibling.querySelector('.picture__likes').textContent;//как обратиться по-другому???
+    commentsCount.textContent = photoData.nextElementSibling.querySelector('.picture__comments').textContent;//как обратиться по-другому???
     description.textContent = photoData.description;//верно
-
+// остановился здесь!
+    const objectComments = photoData.nextElementSibling.querySelector('.picture__comments')
     commentsList.innerHTML = '';
-    photoData.comments.forEach(comment => {
+    objectComments.comments.forEach(comment => {
         const commentElement = document.createElement('li');
-        commentElement.classList.add('social__comment');
-        commentElement.innerHTML =
-            `<img class="social__picture" src="${comment.avatar}" alt="${comment.name}" width="35" height="35">`
-            `<p class="social__text">${comment.message}</p>`
-        ;
-        commentsList.appendChild(commentElement);
+        commentElement.insertAdjacentHTML("afterbegin", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
+        commentElement.insertAdjacentHTML("afterbegin",`<p class="social__text">${comment.message}</p>`)
+        commentsList.append(commentElement);
     });
-
-    bigPicture.classList.remove('hidden');//верно
-    document.body.classList.add('modal-open');//верно
 
 };
 
