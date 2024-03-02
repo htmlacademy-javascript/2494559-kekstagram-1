@@ -12,7 +12,19 @@ document.querySelector('section.pictures').prepend(createElements(userDataArray)
 const sec = document.querySelector('section.pictures');
 
 sec.addEventListener('click', function(event) {
-  // alert(event.target.nextElementSibling.querySelector('.picture__comments').textContent);
   openBigPicture(event.target)
-
 });
+
+// const ul = document.querySelector('ul.social__comments')
+
+// function showComments(data){
+//   const liElements = data.querySelectorAll('.social__comment');
+//   for (let i = 0; i < liElements.length; i++) {
+//     data[i].classList.add('hidden');
+//   }
+// }
+
+// showComments(ul)
+
+// console.log(Array.from(ul))
+// console.log((ul)[0].hidden)

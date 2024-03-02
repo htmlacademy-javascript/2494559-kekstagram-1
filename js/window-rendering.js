@@ -22,13 +22,22 @@ export function openBigPicture(photoData) {
     commentsList.innerHTML = '';
     objectComments.forEach(comment => {
         const commentElement = document.createElement('li');
+        commentElement.classList.add('social__comment');
         commentElement.insertAdjacentHTML("beforeend", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
         commentElement.insertAdjacentHTML("beforeend",`<p class="social__text">${comment.message}</p>`)
         commentsList.append(commentElement);
     });
 
 
+
+    document.querySelector('.social__comment-count').classList.add('hidden');
+
+    document.querySelector('.comments-loader').classList.add('hidden');
+
+    document.body.classList.add('modal-open');
 };
+
+
 
 function closeBigPicture() {
     document.body.classList.remove('modal-open');
@@ -44,3 +53,4 @@ document.addEventListener('keydown', function(event) {
 closeButton.addEventListener('click', function() {
     closeBigPicture();
 });
+
