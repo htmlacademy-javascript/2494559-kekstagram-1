@@ -29,7 +29,7 @@ class CreateObj {
       const obj = {
         id: idComments(),
         avatar: `img/avatar-${avatar()}.svg`,
-        message: message(),
+        message: MESSAGE[message()],
         name: NAMES[names()],
       };
       arrObjects[i] = obj;

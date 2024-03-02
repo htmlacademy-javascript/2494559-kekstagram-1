@@ -19,7 +19,7 @@ export function createElements(pictures) {
     img.description=item.description;
     likes.textContent = item.likes;
     comments.textContent = item.comments.length;
-    comments.comments=item.comments;
+    img.dataPicture=item;
 
     accumulator.append(element);
 

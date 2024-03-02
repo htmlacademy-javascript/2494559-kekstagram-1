@@ -3,27 +3,30 @@ const closeButton = bigPicture.querySelector('.big-picture__cancel');
 
 export function openBigPicture(photoData) {
 
-    bigPicture.classList.remove('hidden');//верно
+    bigPicture.classList.remove('hidden');
 
-    const img = bigPicture.querySelector('.big-picture__img img');//верно
-    const likesCount = bigPicture.querySelector('.likes-count');//верно
-    const commentsCount = bigPicture.querySelector('.comments-count');//верно
-    const commentsList = bigPicture.querySelector('.social__comments');//верно
+    const dataPicture = photoData.dataPicture;
+
+    const img = bigPicture.querySelector('.big-picture__img img');
+    const likesCount = bigPicture.querySelector('.likes-count');
+    const commentsCount = bigPicture.querySelector('.comments-count');
+    const commentsList = bigPicture.querySelector('.social__comments');
     const description = bigPicture.querySelector('.social__caption');
 
-    img.src = photoData.src; //верно
-    likesCount.textContent = photoData.nextElementSibling.querySelector('.picture__likes').textContent;//как обратиться по-другому???
-    commentsCount.textContent = photoData.nextElementSibling.querySelector('.picture__comments').textContent;//как обратиться по-другому???
-    description.textContent = photoData.description;//верно
-// остановился здесь!
-    const objectComments = photoData.nextElementSibling.querySelector('.picture__comments')
+    img.src = dataPicture.url;
+    likesCount.textContent = dataPicture.likes;
+    commentsCount.textContent = dataPicture.comments.length;
+    description.textContent = dataPicture.description;
+
+    const objectComments = dataPicture.comments;
     commentsList.innerHTML = '';
-    objectComments.comments.forEach(comment => {
+    objectComments.forEach(comment => {
         const commentElement = document.createElement('li');
-        commentElement.insertAdjacentHTML("afterbegin", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
-        commentElement.insertAdjacentHTML("afterbegin",`<p class="social__text">${comment.message}</p>`)
+        commentElement.insertAdjacentHTML("beforeend", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
+        commentElement.insertAdjacentHTML("beforeend",`<p class="social__text">${comment.message}</p>`)
         commentsList.append(commentElement);
     });
+
 
 };
 
