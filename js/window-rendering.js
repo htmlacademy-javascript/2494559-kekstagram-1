@@ -31,15 +31,44 @@ export function openBigPicture(photoData) {
         commentsList.append(commentElement);
     });
 
+    // document.querySelector(".social__comment-count").innerHTML=`${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев`
 
-
-    // document.querySelector('.social__comment-count').classList.add('hidden');
-
-    // document.querySelector('.comments-loader').classList.add('hidden');
+    if (commentsList.childElementCount<=5) {
+      document.querySelector('.comments-loader').classList.add('hidden')
+      document.querySelector(".social__comment-count").innerHTML=`${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев`
+    }
+    else if (commentsList.childElementCount===5){
+      document.querySelector(".social__comment-count").innerHTML=`5 из <span class="comments-count">${commentsList.childElementCount}</span> комментариев`
+    }
 
     document.body.classList.add('modal-open');
 };
 
+const commentsLoader = document.querySelector('.comments-loader');
+
+function loadMoreComments(ul){
+  const commentsList = ul.parentElement.querySelector('.social__comments')
+  // const commentsHidden= commentsList.querySelectorAll('.hidden');
+  // const commentsVisible= commentsList.querySelectorAll('.social__comment');
+  console.log(commentsList)
+  console.log(commentsHidden)
+  console.log(commentsVisible)
+
+//   if(commentsList.length === commentsHidden.length){
+//    return document.querySelector('.comments-loader').classList.add('hidden');
+//   }
+
+//   commentsHidden.forEach((comment,index)=>{
+//     if(index<5){
+//       comment.classList.remove('hidden')
+//     }
+//   });
+//  return document.querySelector(".social__comment-count").innerHTML=`${commentsVisible.length-commentsHidden.length} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев`
+}
+
+commentsLoader.addEventListener('click', function(event) {
+  loadMoreComments(event.target);
+});
 
 
 function closeBigPicture() {

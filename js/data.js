@@ -23,7 +23,7 @@ class CreateObj {
   getDataComments() {
     const arrObjects = [];
 
-    arrObjects.length = createNum(1, 10)();
+    arrObjects.length = createNum(1, 15)();
 
     for (let i = 0; i <= arrObjects.length - 1; i++) {
       const obj = {
