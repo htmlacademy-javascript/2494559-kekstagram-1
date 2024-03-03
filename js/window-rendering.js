@@ -25,14 +25,17 @@ export function openBigPicture(photoData) {
         commentElement.classList.add('social__comment');
         commentElement.insertAdjacentHTML("beforeend", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
         commentElement.insertAdjacentHTML("beforeend",`<p class="social__text">${comment.message}</p>`)
+        if (commentsList.childElementCount>=5){
+          commentElement.classList.add('hidden');
+        }
         commentsList.append(commentElement);
     });
 
 
 
-    document.querySelector('.social__comment-count').classList.add('hidden');
+    // document.querySelector('.social__comment-count').classList.add('hidden');
 
-    document.querySelector('.comments-loader').classList.add('hidden');
+    // document.querySelector('.comments-loader').classList.add('hidden');
 
     document.body.classList.add('modal-open');
 };
