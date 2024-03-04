@@ -29,7 +29,7 @@ export function openBigPicture(photoData) {
     const commentElement = document.createElement('li');
     commentElement.classList.add('social__comment');
     if (index > 4){
-        commentElement.classList.add('hidden');
+      commentElement.classList.add('hidden');
     }
     commentElement.insertAdjacentHTML('beforeend', `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`);
     commentElement.insertAdjacentHTML('beforeend',`<p class="social__text">${comment.message}</p>`);
@@ -51,38 +51,38 @@ function loadMoreComments(comments){
   const commentsHidden = commentsListPicture.querySelectorAll('.hidden');
 
   commentsHidden.forEach((comment,index)=>{
-    if(index<5){
+    if(index < 5){
         comment.classList.remove('hidden');
     }
-  })
-  socialCommentCount.innerHTML = `${commentsListPicture.childElementCount-commentsHidden.length+5} из <span class="comments-count">${commentsListPicture.childElementCount}</span> комментариев</div>`;
-    if(commentsHidden.length<6){
-        commentsLoader.classList.add('hidden');
-        socialCommentCount.innerHTML = `${commentsListPicture.childElementCount} из <span class="comments-count">${commentsListPicture.childElementCount}</span> комментариев</div>`;
-    };
+  });
+  socialCommentCount.innerHTML = `${commentsListPicture.childElementCount - commentsHidden.length + 5} из <span class="comments-count">${commentsListPicture.childElementCount}</span> комментариев</div>`;
+  if(commentsHidden.length < 6){
+    commentsLoader.classList.add('hidden');
+    socialCommentCount.innerHTML = `${commentsListPicture.childElementCount} из <span class="comments-count">${commentsListPicture.childElementCount}</span> комментариев</div>`;
+  }
 }
 
 
 function closeBigPicture() {
-    document.body.classList.remove('modal-open');
-    bigPicture.classList.add('hidden');
+  document.body.classList.remove('modal-open');
+  bigPicture.classList.add('hidden');
 }
 
 closeButton.addEventListener('click', function() {
-    closeBigPicture();
+  closeBigPicture();
 });
 
 sectionPictures.addEventListener('click', function(event) {
-    openBigPicture(event.target)
+  openBigPicture(event.target)
   });
 
 commentsLoader.addEventListener('click', function(event) {
-    loadMoreComments(event.target);
+  loadMoreComments(event.target);
 });
 
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeBigPicture();
-    }
+  if (event.key === 'Escape') {
+    closeBigPicture();
+  }
 });
 
