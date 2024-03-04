@@ -8,43 +8,41 @@ const socialCommentCount = document.querySelector('.social__comment-count');
 
 export function openBigPicture(photoData) {
 
-    bigPicture.classList.remove('hidden');
-    document.body.classList.add('modal-open');
+  bigPicture.classList.remove('hidden');
+  document.body.classList.add('modal-open');
 
-    const dataPicture = photoData.dataPicture;
-    const img = bigPicture.querySelector('.big-picture__img img');
-    const likesCount = bigPicture.querySelector('.likes-count');
-    const commentsCount = bigPicture.querySelector('.comments-count');
-    const description = bigPicture.querySelector('.social__caption');
+  const dataPicture = photoData.dataPicture;
+  const img = bigPicture.querySelector('.big-picture__img img');
+  const likesCount = bigPicture.querySelector('.likes-count');
+  const commentsCount = bigPicture.querySelector('.comments-count');
+  const description = bigPicture.querySelector('.social__caption');
 
-    img.src = dataPicture.url;
-    likesCount.textContent = dataPicture.likes;
-    commentsCount.textContent = dataPicture.comments.length;
-    description.textContent = dataPicture.description;
+  img.src = dataPicture.url;
+  likesCount.textContent = dataPicture.likes;
+  commentsCount.textContent = dataPicture.comments.length;
+  description.textContent = dataPicture.description;
 
-    const objectComments = dataPicture.comments;
+  const objectComments = dataPicture.comments;
 
-    commentsList.innerHTML = '';
-    objectComments.forEach((comment,index) => {
-        const commentElement = document.createElement('li');
-        commentElement.classList.add('social__comment');
-        if (index>4){
-            commentElement.classList.add('hidden');
-        }
-        commentElement.insertAdjacentHTML("beforeend", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
-        commentElement.insertAdjacentHTML("beforeend",`<p class="social__text">${comment.message}</p>`)
-        commentsList.append(commentElement);
+  commentsList.innerHTML = '';
+  objectComments.forEach((comment,index) => {
+  const commentElement = document.createElement('li');
+  commentElement.classList.add('social__comment');
+    if (index>4){
+        commentElement.classList.add('hidden');
+    }
+    commentElement.insertAdjacentHTML("beforeend", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
+    commentElement.insertAdjacentHTML("beforeend",`<p class="social__text">${comment.message}</p>`)
+    commentsList.append(commentElement);
     });
 
-    if (commentsList.childElementCount<6){
-        commentsLoader.classList.add('hidden')
-        socialCommentCount.innerHTML=`${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
-    }else {
-        commentsLoader.classList.remove('hidden')
-        socialCommentCount.innerHTML=`5 из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
-    }
-
-
+  if (commentsList.childElementCount<6){
+    commentsLoader.classList.add('hidden')
+    socialCommentCount.innerHTML = `${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
+  }else {
+    commentsLoader.classList.remove('hidden')
+    socialCommentCount.innerHTML = `5 из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
+  }
 };
 
 
@@ -58,10 +56,10 @@ function loadMoreComments(comments){
 
     }
   })
-  socialCommentCount.innerHTML=`${commentsList.childElementCount-commentsHidden.length+5} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
+  socialCommentCount.innerHTML = `${commentsList.childElementCount-commentsHidden.length+5} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
     if(commentsHidden.length<6){
         commentsLoader.classList.add('hidden');
-        socialCommentCount.innerHTML=`${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
+        socialCommentCount.innerHTML = `${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
     };
 }
 
