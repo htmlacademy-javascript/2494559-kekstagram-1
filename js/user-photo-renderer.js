@@ -16,10 +16,10 @@ export function createElements(pictures) {
     const comments = element.querySelector('.picture__comments');
 
     img.setAttribute('src', `${item.url}`);
-    img.description=item.description;
+    img.description = item.description;
     likes.textContent = item.likes;
     comments.textContent = item.comments.length;
-    img.dataPicture=item;
+    img.dataPicture =item;
 
     accumulator.append(element);
 
