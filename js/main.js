@@ -1,10 +1,13 @@
-import { userDataArray } from './data.js';
+import { CreateObj } from './data.js';
 
-import { createElements, sectionPictures} from './user-photo-renderer.js';
+import { createElements } from './user-photo-renderer.js';
 
-import { openBigPicture} from './window-rendering.js';
+import { sectionPictures, openBigPicture} from './window-rendering.js';
 
-sectionPictures.prepend(createElements(userDataArray));
+
+const userDataArray = Array.from({ length: 25 }, () => new CreateObj());
+
+document.querySelector('section.pictures').prepend(createElements(userDataArray));
 
 sectionPictures.addEventListener('click', (event) => {
   openBigPicture(event.target);

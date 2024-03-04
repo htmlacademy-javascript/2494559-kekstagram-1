@@ -1,3 +1,5 @@
+
+export const sectionPictures = document.querySelector('section.pictures');
 const bigPicture = document.querySelector('.big-picture');
 const closeButton = bigPicture.querySelector('.big-picture__cancel');
 const commentsLoader = document.querySelector('.comments-loader');
