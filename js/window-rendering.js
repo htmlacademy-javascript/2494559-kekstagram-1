@@ -1,5 +1,8 @@
 const bigPicture = document.querySelector('.big-picture');
 const closeButton = bigPicture.querySelector('.big-picture__cancel');
+const commentsLoader = document.querySelector('.comments-loader');
+const commentsList = bigPicture.getElementsByClassName('social__comments')[0];
+const socialCommentCount = document.querySelector('.social__comment-count');
 
 export function openBigPicture(photoData) {
 
@@ -10,7 +13,6 @@ export function openBigPicture(photoData) {
     const img = bigPicture.querySelector('.big-picture__img img');
     const likesCount = bigPicture.querySelector('.likes-count');
     const commentsCount = bigPicture.querySelector('.comments-count');
-    const commentsList = bigPicture.querySelector('.social__comments');
     const description = bigPicture.querySelector('.social__caption');
 
     img.src = dataPicture.url;
@@ -20,60 +22,50 @@ export function openBigPicture(photoData) {
 
     const objectComments = dataPicture.comments;
     commentsList.innerHTML = '';
-    objectComments.forEach(comment => {
+    objectComments.forEach((comment,index) => {
         const commentElement = document.createElement('li');
         commentElement.classList.add('social__comment');
+        if (index>4){
+            commentElement.classList.add('hidden');
+        }
         commentElement.insertAdjacentHTML("beforeend", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
         commentElement.insertAdjacentHTML("beforeend",`<p class="social__text">${comment.message}</p>`)
-        if (commentsList.childElementCount>=5){
-          commentElement.classList.add('hidden');
-        }
         commentsList.append(commentElement);
     });
 
-    // document.querySelector(".social__comment-count").innerHTML=`${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев`
-
-    if (commentsList.childElementCount<=5) {
-      document.querySelector('.comments-loader').classList.add('hidden')
-      document.querySelector(".social__comment-count").innerHTML=`${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев`
+    if (commentsList.childElementCount<6){
+        commentsLoader.classList.add('hidden')
+        socialCommentCount.innerHTML=`${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
     }
-    else if (commentsList.childElementCount===5){
-      document.querySelector(".social__comment-count").innerHTML=`5 из <span class="comments-count">${commentsList.childElementCount}</span> комментариев`
+    else {
+        commentsLoader.classList.remove('hidden')
+
     }
 
     document.body.classList.add('modal-open');
 };
 
-const commentsLoader = document.querySelector('.comments-loader');
 
 function loadMoreComments(ul){
-  const commentsList = ul.parentElement.querySelector('.social__comments')
+  const commentsList = ul.parentElement.getElementsByClassName('social__comments');
+  const commentsListTwo = ul.parentElement.querySelector('.social__comments');
   // const commentsHidden= commentsList.querySelectorAll('.hidden');
   // const commentsVisible= commentsList.querySelectorAll('.social__comment');
-  console.log(commentsList)
-  console.log(commentsHidden)
-  console.log(commentsVisible)
-
-//   if(commentsList.length === commentsHidden.length){
-//    return document.querySelector('.comments-loader').classList.add('hidden');
-//   }
-
-//   commentsHidden.forEach((comment,index)=>{
-//     if(index<5){
-//       comment.classList.remove('hidden')
-//     }
-//   });
-//  return document.querySelector(".social__comment-count").innerHTML=`${commentsVisible.length-commentsHidden.length} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев`
+  console.log(commentsList[0])
+  console.log(commentsListTwo)
+  // console.log(commentsHidden)
+  // console.log(commentsVisible)
 }
 
-commentsLoader.addEventListener('click', function(event) {
-  loadMoreComments(event.target);
-});
+// commentsLoader.addEventListener('click', function(event) {
+//   loadMoreComments(event.target);
+// });
 
 
 function closeBigPicture() {
     document.body.classList.remove('modal-open');
     bigPicture.classList.add('hidden');
+
 }
 
 document.addEventListener('keydown', function(event) {
