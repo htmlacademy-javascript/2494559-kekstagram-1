@@ -26,40 +26,39 @@ export function openBigPicture(photoData) {
 
   commentsList.innerHTML = '';
   objectComments.forEach((comment,index) => {
-  const commentElement = document.createElement('li');
-  commentElement.classList.add('social__comment');
-    if (index>4){
+    const commentElement = document.createElement('li');
+    commentElement.classList.add('social__comment');
+    if (index > 4){
         commentElement.classList.add('hidden');
     }
-    commentElement.insertAdjacentHTML("beforeend", `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`)
-    commentElement.insertAdjacentHTML("beforeend",`<p class="social__text">${comment.message}</p>`)
+    commentElement.insertAdjacentHTML('beforeend', `<img class="social__picture" src=${comment.avatar} alt=${comment.name} width="35" height="35">`);
+    commentElement.insertAdjacentHTML('beforeend',`<p class="social__text">${comment.message}</p>`);
     commentsList.append(commentElement);
-    });
+  });
 
-  if (commentsList.childElementCount<6){
-    commentsLoader.classList.add('hidden')
+  if (commentsList.childElementCount < 6){
+    commentsLoader.classList.add('hidden');
     socialCommentCount.innerHTML = `${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
   }else {
-    commentsLoader.classList.remove('hidden')
+    commentsLoader.classList.remove('hidden');
     socialCommentCount.innerHTML = `5 из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
   }
-};
+}
 
 
 function loadMoreComments(comments){
-  const commentsList = comments.parentElement.getElementsByClassName('social__comments')[0];
-  const commentsHidden = commentsList.querySelectorAll('.hidden');
+  const commentsListPicture = comments.parentElement.getElementsByClassName('social__comments')[0];
+  const commentsHidden = commentsListPicture.querySelectorAll('.hidden');
 
   commentsHidden.forEach((comment,index)=>{
     if(index<5){
         comment.classList.remove('hidden');
-
     }
   })
-  socialCommentCount.innerHTML = `${commentsList.childElementCount-commentsHidden.length+5} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
+  socialCommentCount.innerHTML = `${commentsListPicture.childElementCount-commentsHidden.length+5} из <span class="comments-count">${commentsListPicture.childElementCount}</span> комментариев</div>`;
     if(commentsHidden.length<6){
         commentsLoader.classList.add('hidden');
-        socialCommentCount.innerHTML = `${commentsList.childElementCount} из <span class="comments-count">${commentsList.childElementCount}</span> комментариев</div>`;
+        socialCommentCount.innerHTML = `${commentsListPicture.childElementCount} из <span class="comments-count">${commentsListPicture.childElementCount}</span> комментариев</div>`;
     };
 }
 
