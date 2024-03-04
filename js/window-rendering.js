@@ -52,7 +52,7 @@ function loadMoreComments(comments){
 
   commentsHidden.forEach((comment,index)=>{
     if(index < 5){
-        comment.classList.remove('hidden');
+      comment.classList.remove('hidden');
     }
   });
   socialCommentCount.innerHTML = `${commentsListPicture.childElementCount - commentsHidden.length + 5} из <span class="comments-count">${commentsListPicture.childElementCount}</span> комментариев</div>`;
@@ -62,25 +62,24 @@ function loadMoreComments(comments){
   }
 }
 
-
 function closeBigPicture() {
   document.body.classList.remove('modal-open');
   bigPicture.classList.add('hidden');
 }
 
-closeButton.addEventListener('click', function() {
+closeButton.addEventListener('click', () => {
   closeBigPicture();
 });
 
-sectionPictures.addEventListener('click', function(event) {
+sectionPictures.addEventListener('click', (event) => {
   openBigPicture(event.target)
-  });
+});
 
-commentsLoader.addEventListener('click', function(event) {
+commentsLoader.addEventListener('click', (event) => {
   loadMoreComments(event.target);
 });
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeBigPicture();
   }
