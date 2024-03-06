@@ -23,13 +23,13 @@ class CreateObj {
   getDataComments() {
     const arrObjects = [];
 
-    arrObjects.length = createNum(1, 5)();
+    arrObjects.length = createNum(1, 15)();
 
     for (let i = 0; i <= arrObjects.length - 1; i++) {
       const obj = {
         id: idComments(),
         avatar: `img/avatar-${avatar()}.svg`,
-        message: message(),
+        message: MESSAGE[message()],
         name: NAMES[names()],
       };
       arrObjects[i] = obj;
