@@ -4,11 +4,17 @@ import { createElements } from './user-photo-renderer.js';
 
 import { sectionPictures, openBigPicture} from './window-rendering.js';
 
+import {uploadFile, uploadPicture} from './data-via-form.js'
 
-const userDataArray = Array.from({ length: 25 }, () => new CreateObj());
+const userDataArray = Array.from({ length: 25 }, () => new CreateObj());// переделать в Map
 
 document.querySelector('section.pictures').prepend(createElements(userDataArray));
 
 sectionPictures.addEventListener('click', (event) => {
-  openBigPicture(event.target);
+  if(event.target.className=='picture__img'){
+    openBigPicture(event.target)
+  }
 });
+
+uploadFile.addEventListener('change', uploadPicture);
+
