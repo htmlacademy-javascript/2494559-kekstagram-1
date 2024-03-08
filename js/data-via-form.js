@@ -21,6 +21,11 @@ export function uploadPicture() {
     document.body.classList.add('modal-open');
   }
 
+function resetForm() {
+  document.getElementById('upload-file').value = '';
+  document.getElementById('other-field').value = '';
+}
+
 function closeBigPicture() {
   document.body.classList.remove('modal-open');
   imgUploadOverlay.classList.add('hidden');
@@ -30,8 +35,6 @@ uploadCancelButton.addEventListener('click',()=>{
   closeBigPicture()
 })
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closeBigPicture();
-  }
+document.getElementById('close-button').addEventListener('click', function() {
+  resetForm();
 });

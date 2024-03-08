@@ -2,7 +2,7 @@ import { CreateObj } from './data.js';
 
 import { createElements } from './user-photo-renderer.js';
 
-import { sectionPictures, openBigPicture} from './window-rendering.js';
+import { closeBigPicture, sectionPictures, openBigPicture} from './window-rendering.js';
 
 import {uploadFile, uploadPicture} from './data-via-form.js'
 
@@ -18,3 +18,8 @@ sectionPictures.addEventListener('click', (event) => {
 
 uploadFile.addEventListener('change', uploadPicture);
 
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeBigPicture();
+  }
+});
