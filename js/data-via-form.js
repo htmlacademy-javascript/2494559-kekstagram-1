@@ -21,14 +21,14 @@ export function uploadPicture() {
     document.body.classList.add('modal-open');
   }
 
-function resetForm() {
-  document.getElementById('upload-file').value = '';
-  document.getElementById('other-field').value = '';
-}
-
 function closeBigPicture() {
   document.body.classList.remove('modal-open');
   imgUploadOverlay.classList.add('hidden');
+}
+
+function resetForm() {
+  document.getElementById('upload-file').value = '';
+  document.getElementById('other-field').value = '';
 }
 
 uploadCancelButton.addEventListener('click',()=>{
