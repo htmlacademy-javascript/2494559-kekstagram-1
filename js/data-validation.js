@@ -1,6 +1,6 @@
 export const formPhotoDescription = document.querySelector(".img-upload__form")
 
-const pristine = new Pristine(formPhotoDescription, {
+export const pristineForm = new Pristine(formPhotoDescription, {
   classTo: 'form__item',
   errorClass: 'form__item--invalid',
   successClass: 'form__item--valid',
@@ -9,7 +9,7 @@ const pristine = new Pristine(formPhotoDescription, {
   errorTextClass: 'form__error'
 }, false);
 
-pristine.addValidator(formPhotoDescription.querySelector('.text__hashtags'),pristineTextHashtags, false);
+pristineForm.addValidator(formPhotoDescription.querySelector('.text__hashtags'),pristineTextHashtags, false);
 
 function pristineTextHashtags(text){
 

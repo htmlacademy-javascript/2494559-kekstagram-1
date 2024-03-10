@@ -6,7 +6,7 @@ import { closeBigPicture, sectionPictures, openBigPicture} from './window-render
 
 import { uploadFile, uploadPicture } from './data-via-form.js'
 
-import { formPhotoDescription, textHashtags } from './data-validation.js'
+import { formPhotoDescription, textHashtags, pristineForm } from './data-validation.js'
 
 const userDataArray = Array.from({ length: 25 }, () => new CreateObj());// переделать в Map
 
