@@ -17,3 +17,9 @@ function closeBigPicture() {
 uploadCancelButton.addEventListener('click',()=>{
   closeBigPicture()
 })
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeBigPicture();
+  }
+});
