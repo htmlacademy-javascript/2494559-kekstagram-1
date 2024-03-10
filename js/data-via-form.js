@@ -24,6 +24,7 @@ export function uploadPicture() {
 function closeBigPicture() {
   document.body.classList.remove('modal-open');
   imgUploadOverlay.classList.add('hidden');
+  // uploadFile.value='';
 }
 
 function resetForm() {

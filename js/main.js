@@ -8,6 +8,8 @@ import {uploadFile, uploadPicture} from './data-via-form.js'
 
 const userDataArray = Array.from({ length: 25 }, () => new CreateObj());// переделать в Map
 
+
+
 document.querySelector('section.pictures').prepend(createElements(userDataArray));
 
 sectionPictures.addEventListener('click', (event) => {
