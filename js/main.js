@@ -4,7 +4,7 @@ import { createElements } from './user-photo-renderer.js';
 
 import { closeBigPicture, sectionPictures, openBigPicture} from './window-rendering.js';
 
-import {uploadFile, uploadPicture} from './data-via-form.js'
+import { uploadFile, uploadPicture } from './data-via-form.js'
 
 const userDataArray = Array.from({ length: 25 }, () => new CreateObj());// переделать в Map
 
@@ -16,25 +16,10 @@ sectionPictures.addEventListener('click', (event) => {
   }
 });
 
-// uploadFile.addEventListener('change', uploadPicture);
+uploadFile.addEventListener('change', uploadPicture);
 
-// document.addEventListener('keydown', (event) => {
-//   if (event.key === 'Escape') {
-//     closeBigPicture();
-//   }
-// });
-
-// import { CreateObj } from './data.js';
-
-// import { createElements } from './user-photo-renderer.js';
-
-// import { sectionPictures, openBigPicture} from './window-rendering.js';
-
-
-// const userDataArray = Array.from({ length: 25 }, () => new CreateObj());
-
-// document.querySelector('section.pictures').prepend(createElements(userDataArray));
-
-// sectionPictures.addEventListener('click', (event) => {
-//   openBigPicture(event.target);
-// });
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeBigPicture();
+  }
+});
