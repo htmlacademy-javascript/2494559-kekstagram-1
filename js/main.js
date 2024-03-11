@@ -6,7 +6,7 @@ import { closeBigPicture, sectionPictures, openBigPicture} from './window-render
 
 import { uploadFile, uploadPicture } from './data-via-form.js'
 
-import { formPhotoDescription, textHashtags, pristineForm } from './data-validation.js'
+import { pristineForm, formPhotoDescription, textHashtags, textDescription, handleEscapeKey } from './data-validation.js'
 
 const userDataArray = Array.from({ length: 25 }, () => new CreateObj());// переделать в Map
 
@@ -27,14 +27,15 @@ document.addEventListener('keydown', (event) => {
 uploadFile.addEventListener('change', uploadPicture);
 
 formPhotoDescription.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  pristine.validate();
+  if (!pristineForm.validate()){
+    evt.preventDefault();
+  }
 });
 
 textHashtags.addEventListener('focus', function() {
-  textHashtags.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      event.stopPropagation();
-    }
-  });
+  textHashtags.addEventListener('keydown', handleEscapeKey);
+});
+
+textDescription.addEventListener('focus', function() {
+  textDescription.addEventListener('keydown', handleEscapeKey);
 });
