@@ -1,4 +1,4 @@
-export const formPhotoDescription = document.querySelector(".img-upload__form")
+export const formPhotoDescription = document.querySelector(".img-upload__form");
 export const textHashtags = document.querySelector(".text__hashtags");
 export const textDescription = document.querySelector(".text__description");
 
@@ -12,8 +12,8 @@ function pristineTextHashtags(text){
 
   const hashtags = text.trim().toLowerCase().split(' ');
 
-  if (text.split('  ').length!==1) {
-    return false
+  if (text.split('  ').length !== 1) {
+    return false;
   };
   const hashtagRegex = /^#[a-zA-Z0-9]{1,19}$/;
 
@@ -22,11 +22,11 @@ function pristineTextHashtags(text){
   for (let hashtag of hashtags){
 
     if (hashtag.length === 1 && hashtag[0] === '#'){
-      return false
+      return false;
     }
 
     if (!hashtagRegex.test(hashtag)){
-      return false
+      return false;
     }
 
     if (uniqueHashtags.has(hashtag)) {
@@ -37,10 +37,10 @@ function pristineTextHashtags(text){
   }
 
   if(hashtags.length > 5){
-    return false
+    return false;
   }
 
-  return true
+  return true;
 }
 
 pristineForm.addValidator(textDescription, pristineTextDescription, false);

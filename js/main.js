@@ -13,7 +13,7 @@ const userDataArray = Array.from({ length: 25 }, () => new CreateObj());// пе�
 document.querySelector('section.pictures').prepend(createElements(userDataArray));
 
 sectionPictures.addEventListener('click', (event) => {
-  if(event.target.className=='picture__img'){
+  if(event.target.className === 'picture__img'){
     openBigPicture(event.target)
   }
 });
