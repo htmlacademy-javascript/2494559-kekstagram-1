@@ -1,6 +1,6 @@
-export const formPhotoDescription = document.querySelector(".img-upload__form");
-export const textHashtags = document.querySelector(".text__hashtags");
-export const textDescription = document.querySelector(".text__description");
+export const formPhotoDescription = document.querySelector('.img-upload__form');
+export const textHashtags = document.querySelector('.text__hashtags');
+export const textDescription = document.querySelector('.text__description');
 
 export const pristineForm = new Pristine(formPhotoDescription);
 
@@ -8,18 +8,20 @@ pristineForm.addValidator(textHashtags,pristineTextHashtags, false);
 
 function pristineTextHashtags(text){
 
-  if (text.length === 0) return true;
+  if (text.length === 0) {
+    return true;
+  }
 
   const hashtags = text.trim().toLowerCase().split(' ');
 
   if (text.split('  ').length !== 1) {
     return false;
-  };
+  }
   const hashtagRegex = /^#[a-zA-Z0-9]{1,19}$/;
 
   const uniqueHashtags = new Set();
 
-  for (let hashtag of hashtags){
+  for (const hashtag of hashtags){
 
     if (hashtag.length === 1 && hashtag[0] === '#'){
       return false;
@@ -33,7 +35,7 @@ function pristineTextHashtags(text){
       return false;
     }
 
-    uniqueHashtags.add(hashtag)
+    uniqueHashtags.add(hashtag);
   }
 
   if(hashtags.length > 5){
