@@ -49,8 +49,9 @@ pristineForm.addValidator(textDescription, pristineTextDescription, false);
 
 function pristineTextDescription(text){
 
-  if (text.length === 0 || text.length <= 140) return true;
-
+  if (text.length === 0 || text.length <= 140) {
+    return true;
+  }
 }
 
 export function handleEscapeKey(event) {
