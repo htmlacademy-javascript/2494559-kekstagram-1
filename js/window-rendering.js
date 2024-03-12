@@ -62,7 +62,7 @@ function loadMoreComments(comments){
   }
 }
 
-function closeBigPicture() {
+export function closeBigPicture() {
   document.body.classList.remove('modal-open');
   bigPicture.classList.add('hidden');
 }
@@ -73,11 +73,5 @@ closeButton.addEventListener('click', () => {
 
 commentsLoader.addEventListener('click', (event) => {
   loadMoreComments(event.target);
-});
-
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closeBigPicture();
-  }
 });
 
